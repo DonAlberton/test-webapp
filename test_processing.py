@@ -7,6 +7,10 @@ app = FastAPI()
 
 assets: dict[str, int] = {}
 
+@app.get("/")
+def root():
+    return {"response": "Hello world!"}
+
 @app.post("/asset")
 async def create_asset() -> dict[str, int]:
     id = str(uuid.uuid4())
